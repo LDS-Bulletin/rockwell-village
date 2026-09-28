@@ -8,8 +8,16 @@
       {{ range .RegularPages.ByDate.Reverse }}
         <li>
           <a class="entry" href="{{ .RelPermalink }}">
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-            <span class="entry-title">{{ .LinkTitle }}</span>
+            {{- $title := .LinkTitle }}
+            {{- if isset .Params "listtitle" }}
+              {{- $title = .Params.listTitle }}
+            {{- end }}
+            {{- $hasTitle := and $title }}
+
+            <time{{ if not $hasTitle }} class="entry-title"{{ end }} datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+            {{- if $hasTitle }}
+            <span class="entry-title">{{ $title }}</span>
+            {{- end }}
             {{ with .Summary | plainify }}<span class="entry-summary">{{ . | truncate 160 }}</span>{{ end }}
           </a>
         </li>

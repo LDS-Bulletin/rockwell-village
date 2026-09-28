@@ -1,5 +1,6 @@
 locale = 'en-us'
 title = 'Rockwell Village Ward'
+baseUrl = 'http://localhost'
 
 # Events are dated in the future, so they must be built.
 buildFuture = true
@@ -23,8 +24,8 @@ timeZone = 'America/Denver'
 # Home page columns. `style` picks layouts/_partials/columns/<style>.html;
 # `width` is the column's share of the row (defaults to 1).
 [[params.columns]]
-  title = 'Sacrament Announcements'
-  section = 'sacrament-announcements'
+  title = 'Sacrament Summary'
+  section = 'sacrament-summary'
   style = 'latest'
   width = 2
 
