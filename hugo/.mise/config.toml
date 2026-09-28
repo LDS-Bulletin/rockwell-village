@@ -1,3 +1,13 @@
 [tools]
+"github:CloudCannon/pagefind" = "1.5"
 go = "1.26"
 hugo = "latest"
+watchexec = "2"
+
+# Local preview with search. Rebuilds the site and Pagefind index on every
+# change, then serves it at http://localhost:1414 (Pagefind's fixed port).
+[tasks.serve]
+run = """
+watchexec --restart --watch content --watch layouts --watch assets --watch hugo.toml -- \
+  'hugo --cleanDestinationDir --baseURL http://localhost:1414/ && pagefind --site public --serve'
+"""

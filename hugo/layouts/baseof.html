@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ .Title }} | {{ site.Title }}</title>
     {{ $style := resources.Get "styles/main.css" |  resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ "pagefind/pagefind-component-ui.css" | relURL }}" />
     <link rel="stylesheet" href="{{ $style.Permalink }}" />
   </head>
   <body>
@@ -17,10 +18,15 @@
           {{ end }}
         </ul>
       </nav>
+      <div class="search">
+        <pagefind-modal-trigger compact hide-shortcut></pagefind-modal-trigger>
+        <pagefind-modal></pagefind-modal>
+      </div>
     </header>
-    <main class="page">
+    <main class="page"{{ if .IsPage }} data-pagefind-body{{ end }}>
       {{ block "main" . }}{{ end }}
     </main>
     <footer class="site-footer">© {{ now.Year }} {{ site.Title }}</footer>
+    <script src="{{ "pagefind/pagefind-component-ui.js" | relURL }}"></script>
   </body>
 </html>

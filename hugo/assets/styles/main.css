@@ -68,6 +68,30 @@ h3 {
   letter-spacing: 0.02em;
 }
 
+.site-header {
+  position: relative;
+}
+
+.search {
+  position: absolute;
+  top: 1.25rem;
+  right: 1rem;
+}
+
+/* Theme Pagefind's search UI with the site tokens (they already switch for dark mode). */
+:root,
+[data-pf-theme] {
+  --pf-text: var(--text);
+  --pf-text-secondary: var(--muted);
+  --pf-text-muted: var(--muted);
+  --pf-background: var(--surface);
+  --pf-border: var(--border);
+  --pf-border-focus: var(--gold);
+  --pf-hover: var(--bg);
+  --pf-mark: var(--heading);
+  --pf-outline-focus: var(--gold);
+}
+
 .page {
   flex: 1;
   width: 100%;
