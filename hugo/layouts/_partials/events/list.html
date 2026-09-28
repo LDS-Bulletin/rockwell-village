@@ -1,0 +1,23 @@
+{{/* Lists the section's events whose status matches .status. */}}
+{{ $events := slice }}
+{{ range .section.RegularPages.ByDate }}
+  {{ if eq (partial "events/status.html" .) $.status }}
+    {{ $events = $events | append . }}
+  {{ end }}
+{{ end }}
+<ul class="events">
+  {{ range $events }}
+    <li>
+      {{ if .Content }}
+        <details>
+          <summary>{{ partial "events/header.html" . }}</summary>
+          <div class="prose">{{ .Content }}</div>
+        </details>
+      {{ else }}
+        {{ partial "events/header.html" . }}
+      {{ end }}
+    </li>
+  {{ else }}
+    <li>{{ .empty }}</li>
+  {{ end }}
+</ul>

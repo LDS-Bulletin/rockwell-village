@@ -1,0 +1,15 @@
+{{ define "main" }}
+  {{ .Content }}
+  {{ $widths := slice }}
+  {{ range site.Params.columns }}
+    {{ $widths = $widths | append (printf "%vfr" (.width | default 1)) }}
+  {{ end }}
+  <div class="columns" style="--columns: {{ delimit $widths " " | safeCSS }}">
+    {{ range site.Params.columns }}
+      <section class="column card">
+        <h2>{{ .title }}</h2>
+        {{ partial (printf "columns/%s.html" .style) (site.GetPage .section) }}
+      </section>
+    {{ end }}
+  </div>
+{{ end }}

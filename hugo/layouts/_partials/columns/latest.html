@@ -1,0 +1,5 @@
+{{ with index .RegularPages.ByDate.Reverse 0 }}
+  <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+  <div class="prose">{{ .Content }}</div>
+{{ end }}
+<p><a href="{{ .RelPermalink }}">Previous sacrament announcements →</a></p>

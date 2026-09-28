@@ -1,0 +1,21 @@
+{{ define "main" }}
+  <div class="article">
+    <header class="article-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+    </header>
+    <ol class="entries">
+      {{ range .RegularPages.ByDate.Reverse }}
+        <li>
+          <a class="entry" href="{{ .RelPermalink }}">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+            <span class="entry-title">{{ .LinkTitle }}</span>
+            {{ with .Summary | plainify }}<span class="entry-summary">{{ . | truncate 160 }}</span>{{ end }}
+          </a>
+        </li>
+      {{ else }}
+        <li class="empty">Nothing here yet.</li>
+      {{ end }}
+    </ol>
+  </div>
+{{ end }}

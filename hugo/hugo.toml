@@ -1,0 +1,40 @@
+locale = 'en-us'
+title = 'Rockwell Village Ward'
+
+# Events are dated in the future, so they must be built.
+buildFuture = true
+
+# Front matter dates without an offset are in the ward's local time.
+timeZone = 'America/Denver'
+
+[outputs]
+  home = ["HTML"]
+  page = ["HTML"]
+  section = ["HTML"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
+
+[[menus.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+
+# Home page columns. `style` picks layouts/_partials/columns/<style>.html;
+# `width` is the column's share of the row (defaults to 1).
+[[params.columns]]
+  title = 'Sacrament Announcements'
+  section = 'sacrament-announcements'
+  style = 'latest'
+  width = 2
+
+[[params.columns]]
+  title = 'Upcoming Events'
+  section = 'events'
+  style = 'upcoming'
+
+[[params.columns]]
+  title = 'Active Events'
+  section = 'events'
+  style = 'active'
+

@@ -5,6 +5,9 @@ on:
     paths:
       - 'hugo/**'
   workflow_dispatch:
+  # Rebuild daily so past events drop off the home page.
+  schedule:
+    - cron: '0 8 * * *'
 
 permissions:
   contents: read

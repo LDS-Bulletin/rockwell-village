@@ -1,0 +1,9 @@
+{{/* An event's title, dates, times, and location. */}}
+<h3>{{ .Title }}</h3>
+<time datetime="{{ .Date.Format "2006-01-02" }}">
+  {{- .Date.Format "Mon, Jan 2" }}
+  {{- with .Params.endDate }} – {{ (time .).Format "Mon, Jan 2" }}{{ end }}
+  {{- with .Params.startTime }} · {{ . }}{{ end }}
+  {{- with .Params.endTime }} – {{ . }}{{ end -}}
+</time>
+{{ with .Params.location }}<span class="location">{{ . }}</span>{{ end }}
