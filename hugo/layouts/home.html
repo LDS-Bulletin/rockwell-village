@@ -1,14 +1,20 @@
 {{ define "main" }}
   {{ .Content }}
+  {{/* Render each column first so empty ones can be dropped. */}}
   {{ $widths := slice }}
+  {{ $columns := slice }}
   {{ range site.Params.columns }}
-    {{ $widths = $widths | append (printf "%vfr" (.width | default 1)) }}
+    {{ $body := partial (printf "columns/%s.html" .style) (site.GetPage .section) }}
+    {{ if trim $body " \t\r\n" }}
+      {{ $widths = $widths | append (printf "%vfr" (.width | default 1)) }}
+      {{ $columns = $columns | append (dict "title" .title "body" $body) }}
+    {{ end }}
   {{ end }}
   <div class="columns" style="--columns: {{ delimit $widths " " | safeCSS }}">
-    {{ range site.Params.columns }}
+    {{ range $columns }}
       <section class="column card">
         <h2>{{ .title }}</h2>
-        {{ partial (printf "columns/%s.html" .style) (site.GetPage .section) }}
+        {{ .body }}
       </section>
     {{ end }}
   </div>
