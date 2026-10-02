@@ -1,4 +1,4 @@
-{{/* Returns "active" from 24 hours before an event starts until it ends,
+{{/* Returns "today" from 24 hours before an event starts until it ends,
      "past" once it has ended, otherwise "upcoming". An event ends at its
      endDate, or its date if it has none; a date without a time lasts all day. */}}
 {{ $end := time (.Params.endDate | default .Date) }}
@@ -9,6 +9,6 @@
 {{ if lt $end now }}
   {{ $status = "past" }}
 {{ else if le .Date (now.Add (duration "hour" 24)) }}
-  {{ $status = "active" }}
+  {{ $status = "today" }}
 {{ end }}
 {{ return $status }}

@@ -35,7 +35,7 @@ timeZone = 'America/Denver'
   style = 'upcoming'
 
 [[params.columns]]
-  title = 'Active Events'
+  title = "Today's Events"
   section = 'events'
-  style = 'active'
+  style = 'today'
 
