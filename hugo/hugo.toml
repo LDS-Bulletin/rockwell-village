@@ -8,6 +8,9 @@ buildFuture = true
 # Front matter dates without an offset are in the ward's local time.
 timeZone = 'America/Denver'
 
+[params]
+  editURL = 'https://github.com/LDS-Bulletin/rockwell-village/edit/main/hugo/content/'
+
 [outputs]
   home = ["HTML"]
   page = ["HTML"]

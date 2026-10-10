@@ -76,6 +76,18 @@ h3 {
   position: absolute;
   top: 1.25rem;
   right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.edit-link {
+  display: flex;
+  color: var(--muted);
+}
+
+.edit-link:hover {
+  color: var(--heading);
 }
 
 /* Theme Pagefind's search UI with the site tokens (they already switch for dark mode). */
