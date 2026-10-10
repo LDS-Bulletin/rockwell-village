@@ -7,7 +7,7 @@ on:
     - cron: '0 14,15 * * 0'
 
 permissions:
-  contents: write
+  contents: read
 
 defaults:
   run:
@@ -30,6 +30,9 @@ jobs:
         working-directory: .
       - uses: actions/checkout@v7
         if: steps.time.outputs.skip != 'true'
+        with:
+          # This PAT can bypass main's pull request rule.
+          token: ${{ secrets.ROCKWELL_WRITE_PAT }}
       - uses: jdx/mise-action@v4
         if: steps.time.outputs.skip != 'true'
         with:
