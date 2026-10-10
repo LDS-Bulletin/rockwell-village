@@ -44,8 +44,8 @@ jobs:
           file="${{ steps.time.outputs.file }}"
           [[ -e "content/$file" ]] && { echo "content/$file already exists"; exit 0; }
           hugo new content "$file"
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898313+github-actions[bot]@users.noreply.github.com'
+          git config user.name 'chad-bekmezian-snap'
+          git config user.email 'chad.bekmezian@snapone.com'
           git add "content/$file"
           git commit -m "feat(hugo): add sacrament summary for $(date +%F)"
           git push
