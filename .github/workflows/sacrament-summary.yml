@@ -1,0 +1,48 @@
+name: Create sacrament summary
+on:
+  workflow_dispatch:
+  # 8am in America/Denver: 14:00 UTC during MDT, 15:00 UTC during MST.
+  # Both run; the hour check below keeps only the one that is 8am locally.
+  schedule:
+    - cron: '0 14,15 * * 0'
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    shell: bash
+    working-directory: hugo
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    env:
+      TZ: America/Denver
+    steps:
+      - name: Check local time
+        id: time
+        run: |
+          if [[ "${{ github.event_name }}" == "schedule" && "$(date +%H)" != "08" ]]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+          echo "file=sacrament-summary/$(date +%F).md" >> "$GITHUB_OUTPUT"
+        working-directory: .
+      - uses: actions/checkout@v7
+        if: steps.time.outputs.skip != 'true'
+      - uses: jdx/mise-action@v4
+        if: steps.time.outputs.skip != 'true'
+        with:
+          minimum_release_age: 7d
+          working_directory: hugo
+      - name: Create and commit summary
+        if: steps.time.outputs.skip != 'true'
+        run: |
+          file="${{ steps.time.outputs.file }}"
+          [[ -e "content/$file" ]] && { echo "content/$file already exists"; exit 0; }
+          hugo new content "$file"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898313+github-actions[bot]@users.noreply.github.com'
+          git add "content/$file"
+          git commit -m "feat(hugo): add sacrament summary for $(date +%F)"
+          git push
