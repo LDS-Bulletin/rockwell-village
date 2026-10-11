@@ -13,7 +13,7 @@ content:
       - _index.md
     filename:
       template: "{fields.sacrament-summary-date}.md"
-      field: true
+      field: false
     fields:
       - name: sacrament-summary-date
         label: Date
