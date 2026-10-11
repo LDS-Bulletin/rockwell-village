@@ -12,7 +12,7 @@ content:
     exclude:
       - _index.md
     filename:
-      template: "{sacrament-summary-date}.md"
+      template: "{fields.sacrament-summary-date}.md"
       field: true
     fields:
       - name: sacrament-summary-date
