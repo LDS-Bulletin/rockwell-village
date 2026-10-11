@@ -68,8 +68,8 @@ content:
     exclude:
       - _index.md
     filename:
-      template: "{year}-{month}-{day}.md"
-      field: true
+      template: "{fields.date}.md"
+      field: false
     format: toml-frontmatter
     view:
       fields:
