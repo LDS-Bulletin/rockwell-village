@@ -10,8 +10,8 @@ content:
     type: collection
     path: hugo/content/sacrament-summary
     filename:
-      template: "{year}-{month}-{day}-{primary}.md"
-      field: create
+      template: "{sacrament-summary-date}.md"
+      field: true
     fields:
       - name: sacrament-summary-date
         label: Date
