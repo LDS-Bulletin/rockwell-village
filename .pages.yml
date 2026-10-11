@@ -14,19 +14,17 @@ content:
     filename:
       template: "{fields.sacrament-summary-date}.md"
       field: false
+    format: toml-frontmatter
     fields:
       - name: sacrament-summary-date
         label: Date
         type: date
         required: true
-        options:
-          format: yaml-frontmatter
       - name: sacrament-summary-title
         label: Title
         type: select
         required: true
         options:
-          format: yaml-frontmatter
           values:
             - Sacrament Summary
       - name: body
