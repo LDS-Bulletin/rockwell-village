@@ -22,11 +22,9 @@ content:
         required: true
       - name: sacrament-summary-title
         label: Title
-        type: select
+        type: string
         required: true
-        options:
-          values:
-            - Sacrament Summary
+        default: Sacrament Summary
       - name: body
         label: Summary
         type: rich-text
