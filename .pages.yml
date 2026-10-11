@@ -20,6 +20,11 @@ content:
         type: date
         options:
           format: yaml-frontmatter
+      - name: sacrament-summary-title
+        label: Date
+        type: string
+        options:
+          format: yaml-frontmatter
       - name: sacrament-summary
         label: Summary
         type: rich-text
