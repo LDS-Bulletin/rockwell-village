@@ -5,6 +5,54 @@ media:
     output: /static/images
     rename: safe
 content:
+  - name: events
+    label: Events
+    type: collection
+    path: hugo/content/events
+    exclude:
+      - _index.md
+    filename:
+      template: "{year}-{month}-{day}-{fields.title}.md"
+      field: true
+    format: toml-frontmatter
+    fields:
+      - name: title
+        label: Event Title
+        type: string
+        required: true
+      - name: date
+        label: Start Date
+        type: date
+        required: true
+        description: The day this event begins.
+      - name: startTime
+        label: Start Time
+        type: date
+        description: The start time of the event.
+        options:
+          time: true
+      - name: endDate
+        label: End Date
+        type: date
+        description: If this event spans multiple days, the date the event ends.
+      - name: endTime
+        label: End Time
+        type: date
+        description: The ending time of the event.
+        options:
+          time: true
+      - name: location
+        label: Location
+        type: string
+        description: The location where the event will be held, if applicable.
+      - name: body
+        label: Details
+        type: rich-text
+        required: true
+        options:
+          media: images
+          rename: true
+          switcher: true
   - name: sacrament-summary
     label: Sacrament Summary
     type: collection
