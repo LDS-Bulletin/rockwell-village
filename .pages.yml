@@ -16,7 +16,7 @@ content:
       - _index.md
     filename:
       template: "{year}-{month}-{day}-{fields.title}.md"
-      field: true
+      field: false
     format: toml-frontmatter
     view:
       fields:
