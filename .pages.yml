@@ -25,6 +25,7 @@ content:
         type: string
         required: true
         default: Sacrament Summary
+        hidden: true
       - name: body
         label: Summary
         type: rich-text
