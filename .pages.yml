@@ -37,18 +37,18 @@ content:
         label: Start Time
         type: date
         description: The start time of the event.
-        default: null
+        default: ''
         options:
           time: true
       - name: endDate
         label: End Date
         type: date
-        default: null
+        default: ''
         description: If this event spans multiple days, the date the event ends.
       - name: endTime
         label: End Time
         type: date
-        default: null
+        default: ''
         description: The ending time of the event.
         options:
           time: true
