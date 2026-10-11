@@ -56,7 +56,6 @@ content:
       - name: body
         label: Details
         type: rich-text
-        required: true
         options:
           media: images
           rename: true
