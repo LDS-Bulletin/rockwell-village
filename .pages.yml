@@ -18,18 +18,21 @@ content:
       - name: sacrament-summary-date
         label: Date
         type: date
+        required: true
         options:
           format: yaml-frontmatter
       - name: sacrament-summary-title
         label: Title
         type: select
+        required: true
         options:
           format: yaml-frontmatter
           values:
             - Sacrament Summary
-      - name: sacrament-summary
+      - name: body
         label: Summary
         type: rich-text
+        required: true
         options:
           media: images
           rename: true
