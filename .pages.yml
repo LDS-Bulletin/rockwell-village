@@ -35,7 +35,7 @@ content:
         description: The day this event begins.
       - name: startTime
         label: Start Time
-        type: date
+        type: string
         description: The start time of the event.
         default: ''
         options:
@@ -47,7 +47,7 @@ content:
         description: If this event spans multiple days, the date the event ends.
       - name: endTime
         label: End Time
-        type: date
+        type: string
         default: ''
         description: The ending time of the event.
         options:
