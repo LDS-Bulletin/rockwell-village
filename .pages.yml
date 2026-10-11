@@ -12,7 +12,7 @@ content:
     exclude:
       - _index.md
     filename:
-      template: "{fields.date}.md"
+      template: "{year}-{month}-{day}.md"
       field: true
     format: toml-frontmatter
     fields:
