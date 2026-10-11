@@ -1,0 +1,27 @@
+media:
+  - name: images
+    label: Images
+    input: hugo/static/images
+    output: /static/images
+    rename: safe
+content:
+  - name: sacrament-summary
+    label: Sacrament Summary
+    type: collection
+    path: hugo/content/sacrament-summary
+    filename:
+      template: "{year}-{month}-{day}-{primary}.md"
+      field: create
+    fields:
+      - name: sacrament-summary-date
+        label: Date
+        type: date
+        options:
+          format: yaml-frontmatter
+      - name: sacrament-summary
+        label: Summary
+        type: rich-text
+        options:
+          media: images
+          rename: true
+          switcher: true
