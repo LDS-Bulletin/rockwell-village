@@ -1,4 +1,6 @@
-settings.commit.identity: user
+settings:
+  commit:
+    identity: user
 media:
   - name: images
     label: Images
