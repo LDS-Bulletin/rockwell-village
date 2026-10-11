@@ -15,6 +15,10 @@ content:
       template: "{year}-{month}-{day}-{fields.title}.md"
       field: true
     format: toml-frontmatter
+    view:
+      fields:
+        - title
+        - date
     fields:
       - name: title
         label: Event Title
@@ -63,6 +67,9 @@ content:
       template: "{year}-{month}-{day}.md"
       field: true
     format: toml-frontmatter
+    view:
+      fields:
+        - date
     fields:
       - name: date
         label: Date
